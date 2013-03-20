@@ -1,0 +1,21 @@
+#appname:StormCloud Mac
+#appid:com.stormcloud.bmjones
+#publisher:bjones027
+#image:default_app_logo.png
+#url:bmjones.com
+#guid:af6e2f50-730b-435d-a8d0-edbde330e82d
+#desc:undefined
+#type:desktop
+runtime:1.3.1-beta
+app:1.3.1-beta
+codec:1.3.1-beta
+database:1.3.1-beta
+filesystem:1.3.1-beta
+media:1.3.1-beta
+monkey:1.3.1-beta
+network:1.3.1-beta
+platform:1.3.1-beta
+process:1.3.1-beta
+ui:1.3.1-beta
+worker:1.3.1-beta
+ruby:1.3.1-beta
