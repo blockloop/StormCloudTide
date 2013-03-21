@@ -22,7 +22,20 @@ var Weather = {
     };
     client.open('GET', url);
     client.send();
+  },
+
+  startUpdater: function (args) {
+    if (window.weatherUpdater) { return; }
+    if (args && args.pullFirst) {
+      Weather.pullWeather();
+    }
+    window.weatherUpdater = setInterval(Weather.pullWeather, Util.minutes(15));
+  },
+
+  killUpdater: function () {
+    clearInterval(window.weatherUpdater);
   }
+
 
 };
 
