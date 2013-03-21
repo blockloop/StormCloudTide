@@ -7,36 +7,39 @@
   <script type="text/javascript" src="js/models.js"></script>
   <script type="text/javascript" src="js/viewModel.js"></script>
   <script type="text/javascript" src="js/xml2json.js"></script>
-
-  <script type="text/ruby" src="rb/updater.rb"></script>
-
   <script type="text/javascript" src="js/app.js"></script>
+
+  <!-- STYLES -->
+  <link rel="stylesheet" type="text/css" href="css/application.css">
 </head>
 
 <body>
 	<div class="wrapper" data-bind="with: currentWeather">
 		<div class="topbar"></div>
 		<div class="location" data-bind="text: $root.prettyLocation()">NULL</div>
-		<div class="icon">
-			<object data="img/climacons/Sun.svg" type="image/svg+xml" data-bind="attr: { data: condition().image() }">
-		    <img src="img/climacons/fallback.jpg" />
-		  </object>
-		</div>
+		<div class="main-icon" data-bind="html: condition().image()"></div>
 		<div class="details">
 			<div class="temp">
 				<span class="digit" data-bind="text: condition().temp()"></span>
-				<span class="unit" data-bind="text: units().temp()"></span>
+				<span class="unit" data-bind="html: units().temp()"></span>
 			</div>
-			<div>
-				<div class="wind"></div>
-				<div class="humidity"></div>
+			<div class="extra-details">
+				<div class="wind">
+					<span data-bind="text: wind().speed()"></span>
+					<!-- <span data-bind="text: units().speed()"></span> -->
+				</div>
+				<div class="humidity" data-bind="html: atmosphere().humidity()"></div>
 			</div>
 		</div>
-		<div class="forecast-items"> <!-- data-bind="foreach: forecastItems"> -->
+		<div class="forecast-items" data-bind="foreach: forecastItems">
 			<div class="forecast-item">
-				<div class="dow"></div>
-				<div class="icon"></div>
-				<div class="temp"></div>
+				<div class="dow" data-bind="text: dayOfWeek"></div>
+				<div class="icon" data-bind="html: condition().image()"></div>
+				<div class="temp">
+					<span data-bind="text: low"></span>
+					/
+					<span data-bind="text: high"></span>
+				</div>
 			</div>
 		</div>
 	</div>

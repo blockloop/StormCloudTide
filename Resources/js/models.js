@@ -1,5 +1,5 @@
 // ============================
-var WeatherCondition = function (raw) {
+var WeatherVM = function (raw) {
   if (!raw) {
     throw "raw is required";
   }
@@ -10,9 +10,11 @@ var WeatherCondition = function (raw) {
   self.lastBuildDate = ko.observable();
   self.ttl = ko.observable();
   self.location = ko.observable(new Location(raw.location));
+  self.wind = ko.observable(new Wind(raw.wind));
   self.units = ko.observable(new Units(raw.units));
   self.condition = ko.observable(new Condition(raw.item.condition));
-  self.forecast = ko.observable(new Forecast(raw.item.forecast));
+  self.forecastItems = ko.observableArray(Util.toForecast(raw.item.forecast));
+  self.atmosphere = ko.observable(new Atmosphere(raw.atmosphere));
 
 };
 
@@ -34,16 +36,21 @@ var Condition = function (raw) {
   
   self.image = ko.computed(function () {
     var sql = String.format("SELECT resource FROM icon_definitions WHERE id = {0} LIMIT 1", self.code());
-    return window.DB.executeGetScalar(sql);
+    var resource = window.DB.executeGetScalar(sql);
+    var html = Util.makeSvg(resource);
+    return html;
   });
 };
 
 // ============================
 var Forecast = function (raw) {
   var self = this;
-
+  raw['_temp'] = null;
+  self.condition = ko.observable(new Condition(raw));
+  self.high = ko.observable(raw._high);
+  self.low = ko.observable(raw._low);
+  self.dayOfWeek = ko.observable(raw._day);
 };
-
 
 // ============================
 var Units = function (raw) {
@@ -51,6 +58,20 @@ var Units = function (raw) {
   self.temp = ko.observable(raw._temperature);
   self.distance = ko.observable(raw._distance);
   self.pressure = ko.observable(raw._pressure);
+  self.speed = ko.observable(raw._speed.toUpperCase());
+};
+
+var Wind = function (raw) {
+  var self = this;
+  self.chill = ko.observable(raw._chill);
+  self.direction = ko.observable(raw._direction);
   self.speed = ko.observable(raw._speed);
 };
 
+var Atmosphere = function (raw) {
+  var self = this;
+  self.humidity = ko.observable(raw._humidity);
+  self.visibility = ko.observable(raw._visibility);
+  self.pressure = ko.observable(raw._pressure);
+  self.rising = ko.observable(raw._rising);
+};

@@ -15,7 +15,7 @@ var Weather = {
       var xmlStr = this.responseText;
       var jsonObj = x2js.xml_str2json(xmlStr);
       window.rawWeather = jsonObj.rss.channel;
-      window.viewModel.currentWeather(new WeatherCondition(window.rawWeather));
+      window.viewModel.currentWeather(new WeatherVM(window.rawWeather));
     };
     client.onerror = function(e) {
       console.log(e);
