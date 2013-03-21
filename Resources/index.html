@@ -15,7 +15,10 @@
 
 <body>
 	<div class="wrapper" data-bind="with: currentWeather">
-		<div class="topbar"></div>
+		<div class="topbar">
+			<span class="close button" data-bind="click: Ti.App.exit">&#10005;</span>
+			<span class="minimize button">&mdash;</span>
+		</div>
 		<div class="location" data-bind="text: $root.prettyLocation()">NULL</div>
 		<div class="main-icon" data-bind="html: condition().image()"></div>
 		<div class="details">
