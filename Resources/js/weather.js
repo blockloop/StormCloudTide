@@ -9,23 +9,22 @@ var Weather = {
   },
 
   pullWeather: function () {
-    // body...
-  },
-
-  test: function (url) {
     var client = Ti.Network.createHTTPClient();
+    var url = "http://weather.yahooapis.com/forecastrss?w=12790321&u=f";
     client.onload = function(e) {
       var xmlStr = this.responseText;
       var jsonObj = x2js.xml_str2json(xmlStr);
-      window.currentWeather = new WeatherCondition(jsonObj.rss.channel);
+      window.rawWeather = jsonObj.rss.channel;
+      window.viewModel.currentWeather(new WeatherCondition(window.rawWeather));
     };
     client.onerror = function(e) {
       console.log(e);
     };
-    client.open('GET',url);
+    client.open('GET', url);
     client.send();
   }
-}
+
+};
 
 
 

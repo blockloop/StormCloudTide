@@ -1,10 +1,10 @@
 var Database = function (filepath) {
   var self = this;
-  window.DB = Ti.Database.openFile(Ti.Filesystem.getFile(Ti.Filesystem.getApplicationDataDirectory(), 'stormcloudtide.db'));
+  self.db = Ti.Database.openFile(Ti.Filesystem.getFile(Ti.Filesystem.getApplicationDataDirectory(), 'stormcloudtide.db'));
 
   self.executeSql = function (sql) {
     console.log(String.format("executeSql: {0}", sql));
-    var rows = window.DB.execute(sql);
+    var rows = self.db.execute(sql);
     var result = [];
 
     while(rows.isValidRow()) {
@@ -20,7 +20,7 @@ var Database = function (filepath) {
         } catch (e) { break; }
         item[key] = val;
         i++;
-      };
+      }
 
       result.push(item); 
       rows.next();
@@ -31,7 +31,7 @@ var Database = function (filepath) {
   };
 
   self.executeGetScalar = function (sql) {
-    var row = window.DB.execute(sql);
+    var row = self.db.execute(sql);
     var result = null;
     if (row.isValidRow()) {
       result = row.field(0);
