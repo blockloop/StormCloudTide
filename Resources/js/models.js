@@ -58,7 +58,7 @@ var Units = function (raw) {
   self.temp = ko.observable(raw._temperature);
   self.distance = ko.observable(raw._distance);
   self.pressure = ko.observable(raw._pressure);
-  self.speed = ko.observable(raw._speed.toUpperCase());
+  self.speed = ko.observable(raw._speed);
 };
 
 var Wind = function (raw) {

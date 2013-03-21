@@ -20,15 +20,15 @@
 		<div class="main-icon" data-bind="html: condition().image()"></div>
 		<div class="details">
 			<div class="temp">
-				<span class="digit" data-bind="text: condition().temp()"></span>
-				<span class="unit" data-bind="html: units().temp()"></span>
+				<span class="digit" data-bind="text: condition().temp()+'&deg;'"></span>
+				<!-- <span class="unit"></span> -->
 			</div>
 			<div class="extra-details">
 				<div class="wind">
 					<span data-bind="text: wind().speed()"></span>
-					<!-- <span data-bind="text: units().speed()"></span> -->
+					<span data-bind="text: units().speed()"></span>
 				</div>
-				<div class="humidity" data-bind="html: atmosphere().humidity()"></div>
+				<div class="humidity" data-bind="html: atmosphere().humidity() + '%'"></div>
 			</div>
 		</div>
 		<div class="forecast-items" data-bind="foreach: forecastItems">
@@ -36,9 +36,9 @@
 				<div class="dow" data-bind="text: dayOfWeek"></div>
 				<div class="icon" data-bind="html: condition().image()"></div>
 				<div class="temp">
-					<span data-bind="text: low"></span>
+					<span data-bind="text: low()+'&deg;'"></span>
 					/
-					<span data-bind="text: high"></span>
+					<span data-bind="text: high()+'&deg;'"></span>
 				</div>
 			</div>
 		</div>

@@ -1,5 +1,5 @@
 @font-face {
-    font-family: ClimaconsRegular;
+    font-family: 'ClimaconsRegular';
     src: url('fonts/climacons-webfont.eot');
     src: url('fonts/climacons-webfont.eot?#iefix') format('embedded-opentype'),
          url('fonts/climacons-webfont.woff') format('woff'),
@@ -11,7 +11,7 @@
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
 body {
-	font-family:'ClimaconsRegular';
+	font-family: 'ClimaconsRegular';
 	font-size: 18px;
 }
 
@@ -38,4 +38,5 @@ body {
 
 .main-icon img {
 	width: 200px;
+	margin: -30px 0;
 }
