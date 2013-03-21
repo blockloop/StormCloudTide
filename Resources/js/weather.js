@@ -12,7 +12,19 @@ var Weather = {
     // body...
   },
 
-  
+  test: function (url) {
+    var client = Ti.Network.createHTTPClient();
+    client.onload = function(e) {
+      var xmlStr = this.responseText;
+      var jsonObj = x2js.xml_str2json(xmlStr);
+      window.data.currentWeather = jsonObj.rss.channel;
+    };
+    client.onerror = function(e) {
+      console.log(e);
+    };
+    client.open('GET',url);
+    client.send();
+  }
 }
 
 

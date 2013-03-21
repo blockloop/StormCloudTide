@@ -1,8 +1,9 @@
 var Database = function (filepath) {
   var self = this;
-  window.DB = Ti.Database.openFile(Ti.Filesystem.getFile(Ti.Filesystem.getApplicationDataDirectory(), 'application.db'));
+  window.DB = Ti.Database.openFile(Ti.Filesystem.getFile(Ti.Filesystem.getApplicationDataDirectory(), 'stormcloudtide.db'));
 
-  self.executeGetRows = function (sql) {
+  self.executeSql = function (sql) {
+    console.log(String.format("executeSql: {0}", sql));
     var rows = window.DB.execute(sql);
     var result = [];
 
@@ -24,7 +25,7 @@ var Database = function (filepath) {
       result.push(item); 
       rows.next();
 
-    };
+    }
     rows.close();
     return result; 
   };
@@ -34,9 +35,27 @@ var Database = function (filepath) {
     var result = null;
     if (row.isValidRow()) {
       result = row.field(0);
-    };
+    }
     row.close();
     return result;
+  };
+
+  self.insertInto = function (sql, records) {
+    // TODO
+  };
+
+  self.setup = function () {
+    var resourcesDir = Ti.Filesystem.getResourcesDirectory();
+    var dir = Ti.Filesystem.getFile(resourcesDir, 'init_sql');
+    var files = dir.getDirectoryListing();
+    files = _.sortBy(files, function (name) { return name; });
+    console.log(String.format("Seeding {0} files in init_sql", files.length));
+
+    for (var i = 0; i <= files.length - 1; i++) {
+      var file = Ti.Filesystem.getFile(files[i]);
+      var contents = file.open().read().toString().trim();
+      self.executeSql(contents);
+    };
   };
 
 };
