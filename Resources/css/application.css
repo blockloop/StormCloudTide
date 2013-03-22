@@ -2,7 +2,7 @@
   font-family: 'Ubuntu Condensed';
   font-style: normal;
   font-weight: 400;
-  src: local("Ubuntu Condensed"), local("UbuntuCondensed-Regular"), url("fonts/ubuntu.woff") format("woff"); 
+  src: local("Ubuntu Condensed"), local("UbuntuCondensed-Regular"), url("../fonts/ubuntu.woff") format("woff"); 
 }
 
 @font-face {
@@ -37,43 +37,45 @@
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto Regular"), local("Roboto-Regular"), url("fonts/roboto.woff") format("woff"); 
+  src: local("Roboto Regular"), local("Roboto-Regular"), url("../fonts/roboto.woff") format("woff"); 
 }
 
+body.ubuntu {
+  font-family: 'Ubuntu Condensed';
+}
 body.lato {
   font-family: "Lato"; 
 }
-
 body.bitter {
   font-family: "Bitter"; 
 }
-
 body.titillium {
-	font-family: "Titillium Web"; }
-	body.titillium .stats .left {
-	  letter-spacing: -8px; 
+	font-family: "Titillium Web"; 
 }
-
+body.titillium .stats .left {
+  letter-spacing: -8px; 
+}
 body.cantarell {
-  font-family: "Cantarell"; }
-  body.cantarell .city {
-    letter-spacing: -2px; }
-  body.cantarell .stats .left {
-    letter-spacing: -8px; 
+  font-family: "Cantarell"; 
 }
-
+body.cantarell .city {
+  letter-spacing: -2px; 
+}
+body.cantarell .stats .left {
+  letter-spacing: -8px; 
+}
 body.roboto {
   font-family: "Roboto"; 
 }
 
 /* END FONTS */
 
-
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
 body {
 	font-family: 'Ubuntu Condensed';
 	font-size: 18px;
+  background: #62558a;
 }
 
 .location, .main-icon, .details, .forecast-items {
@@ -89,30 +91,37 @@ body {
     display: inline-block;
 }
 
-.details .temp {
-    font-size: 2.5em;
+.extra-details {
+  text-align: left;
 }
 
-.forecast-items {
-    margin-top: 20px;
+.details .temp {
+  font-size: 2.5em;
+  margin: 10px 0 20px 0;
 }
 
 .main-icon img {
-	width: 200px;
-	margin: -30px 0;
+	width: 250px;
+	margin: -30px;
 }
 
+.icon img {
+  /*width: 200px;*/
+  margin: -1em 0 -0.7em 0;
+}
+
+
 .button {
-    width: 30px;
-    height: 30px;
-    margin: 0;
-    display: inline-block;
-    text-align: center;
-    font-size: 0.7em;
-    font-weight: bold;
-    background: rgba(0, 0, 0, 0.05);
-    cursor: default;
-    -webkit-transition: 200ms ease background;
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  display: inline-block;
+  text-align: center;
+  font-size: 0.7em;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.05);
+  cursor: default;
+  -webkit-transition: 200ms ease background;
 }
 
 .button:hover {

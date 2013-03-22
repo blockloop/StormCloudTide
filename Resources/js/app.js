@@ -1,7 +1,5 @@
 $(function () {
-	var appWindow = Ti.UI.getCurrentWindow();
-	appWindow.setHeight(415);
-	appWindow.setWidth(255);
+	window.appWindow = Ti.UI.getCurrentWindow();
 	window.DB = new Database();
 	window.viewModel = new ViewModel();
 	ko.applyBindings(window.viewModel);

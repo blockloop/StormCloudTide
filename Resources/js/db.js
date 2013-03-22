@@ -1,6 +1,8 @@
 var Database = function (filepath) {
   var self = this;
-  self.db = Ti.Database.openFile(Ti.Filesystem.getFile(Ti.Filesystem.getApplicationDataDirectory(), 'stormcloudtide.db'));
+  self.dbFile = Ti.Filesystem.getFile(Ti.Filesystem.getApplicationDataDirectory(), 'stormcloudtide.db');
+  console.log('Using database ' + self.dbFile.toString());
+  self.db = Ti.Database.openFile(self.dbFile);
 
   self.executeSql = function (sql) {
     console.log(String.format("executeSql: {0}", sql));
@@ -40,11 +42,8 @@ var Database = function (filepath) {
     return result;
   };
 
-  self.insertInto = function (sql, records) {
-    // TODO
-  };
-
   self.setup = function () {
+    if (self.dbFile.exists()) { console.log(self.dbFile); }
     var resourcesDir = Ti.Filesystem.getResourcesDirectory();
     var dir = Ti.Filesystem.getFile(resourcesDir, 'init_sql');
     var files = dir.getDirectoryListing();
