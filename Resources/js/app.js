@@ -1,8 +1,9 @@
 $(function () {
-	window.appWindow = Ti.UI.getCurrentWindow();
-	window.DB = new Database();
-	window.viewModel = new ViewModel();
-	ko.applyBindings(window.viewModel);
+	Ti.App.appWindow = Ti.UI.getCurrentWindow();
+	// Ti.App.DB = new Database();
+	// Ti.App.DB.setup();
+	Ti.App.viewModel = new ViewModel();
+	ko.applyBindings(Ti.App.viewModel);
 	Weather.startUpdater({pullFirst: true});
 });
 

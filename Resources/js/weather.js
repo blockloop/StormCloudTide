@@ -14,8 +14,8 @@ var Weather = {
     client.onload = function(e) {
       var xmlStr = this.responseText;
       var jsonObj = x2js.xml_str2json(xmlStr);
-      window.rawWeather = jsonObj.rss.channel;
-      window.viewModel.currentWeather(new WeatherVM(window.rawWeather));
+      Ti.App.rawWeather = jsonObj.rss.channel;
+      Ti.App.viewModel.currentWeather(new WeatherVM(Ti.App.rawWeather));
     };
     client.onerror = function(e) {
       console.log(e);
@@ -25,15 +25,15 @@ var Weather = {
   },
 
   startUpdater: function (args) {
-    if (window.weatherUpdater) { return; }
+    if (Ti.App.weatherUpdater) { return; }
     if (args && args.pullFirst) {
       Weather.pullWeather();
     }
-    window.weatherUpdater = setInterval(Weather.pullWeather, Util.minutes(15));
+    Ti.App.weatherUpdater = setInterval(Weather.pullWeather, Util.minutes(15));
   },
 
   killUpdater: function () {
-    clearInterval(window.weatherUpdater);
+    clearInterval(Ti.App.weatherUpdater);
   }
 
 

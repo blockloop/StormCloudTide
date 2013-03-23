@@ -35,10 +35,12 @@ var Condition = function (raw) {
   self.text = ko.observable(raw._text);
   
   self.image = ko.computed(function () {
-    var sql = String.format("SELECT resource FROM icon_definitions WHERE id = {0} LIMIT 1", self.code());
-    var resource = window.DB.executeGetScalar(sql);
-    var html = Util.makeSvg(resource);
-    return html;
+    var image = Ti.App.iconCodes[self.code()];
+    return Util.makeSvg(image);
+    // var sql = String.format("SELECT resource FROM icon_definitions WHERE id = {0} LIMIT 1", self.code());
+    // var resource = Ti.App.DB.executeGetScalar(sql);
+    // var html = Util.makeSvg(resource);
+    // return html;
   });
 };
 
