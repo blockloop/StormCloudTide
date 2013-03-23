@@ -13,14 +13,14 @@
 <id>initial</id>
 <title>StormCloud</title>
 <url>app://index.html</url>
-<width>255</width>
+<width>300</width>
 <max-width>3000</max-width>
 <min-width>0</min-width>
-<height>430</height>
+<height>500</height>
 <max-height>3000</max-height>
 <min-height>0</min-height>
 <fullscreen>false</fullscreen>
-<resizable>true</resizable>
+<resizable>false</resizable>
 <chrome scrollbars="false">true</chrome>
 <!-- <chrome>false</chrome> -->
 <maximizable>true</maximizable>
