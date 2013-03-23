@@ -16,16 +16,19 @@ var Util = {
 
 	makeSvg: function (svgFile, fallback) {
 		if (!fallback) { fallback = 'img/climacons/fallback.jpg'; }
-		// return String.format('<object data="{0}" type="image/svg+xml"><img src="{1}" /></object>', svgFile, fallback);
-		// return String.format('<img src="{0}" $paramFill="green"/>', svgFile);
 		return String.format("url({0})", svgFile);
 	},
+
 	toForecast: function (raw) {
 		return _.map(raw, function (item) {
 			return new Forecast(item);
 		});
-	}
+	},
 
-
+	mean: function  (arr) {
+		return Math.round(_.reduce(arr, function(memo, num) {
+			return memo + num;
+		}, 0) / arr.length);
+	},
 
 };

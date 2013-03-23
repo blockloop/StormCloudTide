@@ -37,10 +37,6 @@ var Condition = function (raw) {
   self.image = ko.computed(function () {
     var image = Ti.App.iconCodes[self.code()];
     return Util.makeSvg(image);
-    // var sql = String.format("SELECT resource FROM icon_definitions WHERE id = {0} LIMIT 1", self.code());
-    // var resource = Ti.App.DB.executeGetScalar(sql);
-    // var html = Util.makeSvg(resource);
-    // return html;
   });
 };
 
@@ -52,6 +48,12 @@ var Forecast = function (raw) {
   self.high = ko.observable(raw._high);
   self.low = ko.observable(raw._low);
   self.dayOfWeek = ko.observable(raw._day);
+
+  self.average = ko.computed(function () {
+    var lowInt = parseInt(self.low());
+    var highInt = parseInt(self.high());
+    return Util.mean([lowInt,highInt]);
+  });
 };
 
 // ============================
