@@ -2,7 +2,7 @@
 <ti:app xmlns:ti='http://ti.appcelerator.org'>
 <!-- These values are edited/maintained by TideSDK Developer -->
 <id>com.stormcloud.bmjones</id>
-<name>StormCloud Mac</name>
+<name>StormCloud</name>
 <version>0.1</version>
 <publisher>bjones027</publisher>
 <url>bmjones.com</url>
