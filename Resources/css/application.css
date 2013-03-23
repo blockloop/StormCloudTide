@@ -16,37 +16,94 @@
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
 body {
-  font-family: 'RobotoCondensed';
+  font-family: 'UbuntuRegular';
 	font-size: 22px;
-  /*background: #62558a;*/
-  background: #FFF;
+  color: white;
+  background: #62558a;
+  text-transform: uppercase;
   margin: 0;
-  letter-spacing: -1px;
+  /*letter-spacing: -3px;*/
 }
 
+.nofont {
+  font-family: 'Comic Sans';
+  font-weight: 100;
+}
+
+/* TOP BAR */
 .topbar {
   height: 30px;
   max-height: 30px;
   min-height: 30px;
 }
 
+.button {
+  width: 30px;
+  height: 30px;
+  margin: -5px;
+  display: inline-block;
+  text-align: center;
+  font-size: 0.7em;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.05);
+  cursor: default;
+  -webkit-transition: 200ms ease background;
+}
+
+.button:hover {
+  background: rgba(0, 0, 0, 0.2); 
+}
+
+.topbar .button {
+  margin: 0 -2.5px;
+}
+
+.topbar .left-actions {
+  float: left;
+  height: 30px;
+}
+
+.topbar .right-actions {
+  float: right;
+  height: 30px;
+}
+
+.topbar .settings.button {
+  background: transparent url(app://img/settings.svg) center center;
+}
+
+.topbar .sync.button {
+  background: transparent url(app://img/sync.svg) center center;
+}
+
+.topbar .left.button {
+  background: transparent url(app://img/left.svg) center center;
+}
+
+.topbar .right.button {
+  background: transparent url(app://img/right.svg) center center;
+  margin-right: 0 !important;
+}
+
+.topbar .right-actions .button {
+  background-repeat: no-repeat;
+  background-size: 55%;
+  margin: 0 -5px;
+}
+/* END TOP BAR */
+
 .content {
   margin: 8px;
 }
 
-/*UNTIL READY*/
-.topbar .button {
-  display: none;
-}
-/*END*/
-
-.location, .main-icon, .details, .forecast-items {
+.location, .details, .forecast-items {
   width: 100%;
   text-align: center;
 }
 
 .location {
-  font-size: 1.3em;
+  margin-top: 20px;
+  font-size: 1.1em;
 }
 
 .forecast-items {
@@ -63,7 +120,7 @@ body {
 }
 
 .details {
-  margin: 40px 0;
+  margin-bottom: 30px;
 }
 
 .details .temp {
@@ -76,14 +133,15 @@ body {
 
 .wind {
   margin-bottom: 5px;  
+  text-transform: lowercase;
 }
 
 .current-icon {
   background-position: 50% 0%;
   background-repeat: no-repeat;
   background-size: 100% ;
-  height: 200px;
-  margin: -50px 5px 10px;
+  height: 300px;
+  margin: -50px -10px;
   width: auto;
 }
 
@@ -92,24 +150,20 @@ body {
   background-repeat: no-repeat;
   background-size: 100% ;
   height: 75px;
-  margin: -10px 0px 0px;
+  margin: -15px 5px 0px;
   width: 75px;
 }
 
 
-.button {
-  width: 30px;
-  height: 30px;
-  margin: 0;
-  display: inline-block;
-  text-align: center;
-  font-size: 0.7em;
-  font-weight: bold;
-  background: rgba(0, 0, 0, 0.05);
-  cursor: default;
-  -webkit-transition: 200ms ease background;
+/* CLEARFIX */
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
 }
-
-.button:hover {
-  background: rgba(0, 0, 0, 0.2); 
+.cf:after {
+    clear: both;
+}
+.cf {
+    *zoom: 1;
 }

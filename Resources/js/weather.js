@@ -1,3 +1,5 @@
+// Extended Forecast: http://xml.weather.yahoo.com/forecastrss/75032_f.xml
+
 var Weather = {
 
   addTimezone: function (timezone) {

@@ -16,8 +16,16 @@
 <body class="ubuntu">
 	<div class="wrapper" data-bind="with: currentWeather">
 		<div class="topbar">
-			<span class="close button" data-bind="click: Ti.App.exit">&#10005;</span>
-			<span class="minimize button">&mdash;</span>
+      <div class="left-actions">
+  			<span class="close button nofont" data-bind="click: Ti.App.exit">&#10005;</span>
+  			<span class="minimize button nofont">&#150;</span>
+      </div>
+      <div class="right-actions">
+        <span class="settings button"></span>
+        <span class="sync button"></span>
+        <span class="left button"></span>
+        <span class="right button"></span>
+      </div>
 		</div>
 		<div class="content">
 			<div class="location" data-bind="text: location().city()">NULL</div>
@@ -26,7 +34,7 @@
 			</div>
 			<div class="details">
 				<div class="temp">
-					<span class="digit" data-bind="html: condition().temp()+'<span class=\'ubuntu\'>&deg;</span>'"></span>
+					<span class="digit" data-bind="html: condition().temp()+'<span class=\'nofont\'>&deg;</span>'"></span>
 				</div>
 				<div class="extra-details">
 					<div class="wind">
@@ -41,9 +49,9 @@
 					<div class="dow" data-bind="text: dayOfWeek"></div>
 					<div class="forecast-icon" data-bind="style: { backgroundImage: condition().image() }"></div>
 					<div class="temp">
-						<span data-bind="html: low()+'<span class=\'ubuntu\'>&deg;</span>'"></span>
-						/
-						<span data-bind="html: high()+'<span class=\'ubuntu\'>&deg;</span>'"></span>
+						<span data-bind="html: average()+'<span class=\'nofont\'>&deg;</span>'"></span>
+						<!-- /
+						<span data-bind="html: high()+'<span class=\'ubuntu\'>&deg;</span>'"></span> -->
 					</div>
 				</div>
 			</div>
