@@ -21,7 +21,7 @@ body {
   /*background: #62558a;*/
   background: #FFF;
   margin: 0;
-  letter-spacing: 0;
+  letter-spacing: -1px;
 }
 
 .topbar {
@@ -43,6 +43,10 @@ body {
 .location, .main-icon, .details, .forecast-items {
   width: 100%;
   text-align: center;
+}
+
+.location {
+  font-size: 1.3em;
 }
 
 .forecast-items {

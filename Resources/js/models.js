@@ -63,6 +63,7 @@ var Units = function (raw) {
   self.speed = ko.observable(raw._speed);
 };
 
+// ============================
 var Wind = function (raw) {
   var self = this;
   self.chill = ko.observable(raw._chill);
@@ -70,6 +71,7 @@ var Wind = function (raw) {
   self.speed = ko.observable(raw._speed);
 };
 
+// ============================
 var Atmosphere = function (raw) {
   var self = this;
   self.humidity = ko.observable(raw._humidity);
