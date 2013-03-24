@@ -29,8 +29,8 @@
 		</div>
 		<div class="content">
 			<div class="location" data-bind="text: location().city()">NULL</div>
-			<div class="main-icon">
-				<div class="current-icon" data-bind="style: { backgroundImage: condition().image() }"></div>
+			<div class="main icon">
+				<div class="current icon" data-bind="html: condition().image()"></div>
 			</div>
 			<div class="details">
 				<div class="temp">
@@ -47,7 +47,7 @@
 			<div class="forecast-items" data-bind="foreach: forecastItems">
 				<div class="forecast-item">
 					<div class="dow" data-bind="text: dayOfWeek"></div>
-					<div class="forecast-icon" data-bind="style: { backgroundImage: condition().image() }"></div>
+					<div class="forecast icon" data-bind="html: condition().image()"></div>
 					<div class="temp">
 						<span data-bind="html: average()+'<span class=\'nofont\'>&deg;</span>'"></span>
 						<!-- /

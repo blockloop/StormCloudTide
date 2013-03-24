@@ -16,7 +16,7 @@ var Util = {
 
 	makeSvg: function (svgFile, fallback) {
 		if (!fallback) { fallback = 'img/climacons/fallback.jpg'; }
-		return String.format("url({0})", svgFile);
+		return String.format("<img src='{0}' class='centerImage' />", svgFile);
 	},
 
 	toForecast: function (raw) {

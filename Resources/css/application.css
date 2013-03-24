@@ -25,6 +25,12 @@ body {
   /*letter-spacing: -3px;*/
 }
 
+.centerImage
+{
+  text-align:center;
+  display:block;
+}
+
 .nofont {
   font-family: 'Comic Sans';
   font-weight: 100;
@@ -136,22 +142,17 @@ body {
   text-transform: lowercase;
 }
 
-.current-icon {
-  background-position: 50% 0%;
-  background-repeat: no-repeat;
-  background-size: 100% ;
-  height: 300px;
-  margin: -50px -10px;
+.icon img {
+  margin: -10% auto;
   width: auto;
 }
 
-.forecast-icon {
-  background-position: 50% 0%;
-  background-repeat: no-repeat;
-  background-size: 100% ;
+.current.icon img {
+  height: 250px;
+}
+
+.forecast.icon {
   height: 75px;
-  margin: -15px 5px 0px;
-  width: 75px;
 }
 
 
